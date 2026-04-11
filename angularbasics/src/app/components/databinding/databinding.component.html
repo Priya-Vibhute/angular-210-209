@@ -1,0 +1,28 @@
+<h3>Data Binding</h3>
+<ul>
+    <li>One way data-binding</li>
+    <ol>
+        <li>Interpolation</li>
+             <p>My name is {{name}} and age is {{age}}</p>
+             <p>{{6+10}}</p>
+       
+        <li>Event Binding</li>
+             <button class="btn btn-primary" (click)="hello()">Click</button>   
+        
+             <li>Property binding</li>
+        <input type="text" [value]="name">
+        <img src="abc.png" [alt]="altText"/>
+
+             
+        <li>Style binding</li>
+        <p [style.color]="color">Lorem ipsum dolor sit amet.</p>
+        <p class="bg-warning w-25" [style.borderRadius]="'50% 50% 0% 0%'">Lorem ipsum dolor sit amet.</p>
+        
+    </ol>
+    <li>Two way data-binding</li>
+    <ol>
+        <li>ngModel</li>
+        <input type="text" [(ngModel)]="name">
+        <p> Name : {{name}} </p>
+    </ol>
+</ul>
