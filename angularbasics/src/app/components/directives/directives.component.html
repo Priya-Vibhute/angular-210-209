@@ -1,0 +1,78 @@
+<h3>Directives</h3>
+<ul>
+    <li>Component</li>
+    <li>Attribute Directive [ngStyle,ngClass]</li>
+    <li>Structural Directives [ngIf,ngFor]</li>
+</ul>
+
+<hr>
+<h5>Attribute Directives</h5>
+<hr>
+
+<p [ngClass]="classes">Lorem ipsum dolor sit amet consectetur.</p>
+<p [ngClass]="{'bg-warning':false,'bg-danger':true}">Lorem ipsum dolor sit amet consectetur.</p>
+
+<hr>
+
+<!-- theme -false -->
+<div class="card  mb-3" style="max-width:18rem;"
+
+         [ngClass]="{'text-dark':theme,'bg-light':theme,'text-white':!theme,'bg-dark':!theme}">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Dark card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="changeTheme()">Change theme</button>
+
+<hr>
+
+<div class="row">
+    <div class="col">
+        <h1 [ngClass]="styles">Hello</h1>
+    </div>
+    <div class="col">
+        <button class="btn btn-primary m-2" (click)="addStyles('bg-warning')">Add background color</button>
+        <button class="btn btn-primary m-2" (click)="addStyles('text-center')">center text</button>
+        <button class="btn btn-primary m-2" (click)="addStyles('m-3')">Add margin</button>
+         <button class="btn btn-primary m-2" (click)="addStyles('m-3')">remove last added style</button>
+    </div>
+</div>
+
+<hr>
+
+<p [ngStyle]="cssStyles()">Lorem ipsum dolor sit amet.</p>
+
+<hr>
+<h3>Structural directives [ngIf] [ngFor]</h3>
+<hr>
+
+<ng-container *ngIf="loggedIn; then ifblock  else elseblock"></ng-container>
+
+
+<ng-template #ifblock>
+     <p>Welcome XYZ, You have logged in successfully</p>
+</ng-template>
+
+<ng-template  #elseblock>
+       <p>You are logged out</p>
+</ng-template>
+
+<button class="btn btn-primary" (click)="toggleLogin()"> Click </button>
+
+<hr>
+
+<ul>
+    <li *ngFor="let s of students ">{{s}}</li>
+</ul>
+
+
+<div class="row">
+       <div class="col bg-warning p-3 m-3" *ngFor="let p of products">
+            <p> Id : {{p.id}}</p>
+            <p> Name : {{p.name}}</p>
+            <p> Price: {{p.price}}</p>
+       </div>
+</div>
