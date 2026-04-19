@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Product, ProductService } from '../../services/product.service';
+
 
 @Component({
   selector: 'app-directives',
@@ -14,11 +16,12 @@ export class DirectivesComponent {
      loggedIn=true
 
      students=["Nisha","Anisha","Manisha","Sujit"]
-     products=[
-         {id:101,name:'Laptop',price:45000},
-         {id:102,name:'Mobile',price:35000},
-         {id:103,name:'Earphones',price:1000}
-     ]
+     products:Product[]=[]
+
+     constructor(private productService: ProductService)
+     {
+        this.products=this.productService.products;
+     }
 
      toggleLogin()
      {
