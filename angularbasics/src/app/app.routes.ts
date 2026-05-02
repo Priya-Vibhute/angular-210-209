@@ -10,6 +10,7 @@ import { ObservablesComponent } from './components/observables/observables.compo
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
+import { ApiHandlingComponent } from './components/api-handling/api-handling.component';
 
 export const routes: Routes = [
     {
@@ -55,5 +56,9 @@ export const routes: Routes = [
     {
         path:'recipes/:recipeId',
         component:RecipeDetailComponent
+    },
+    {
+        path:'api-handling',
+        component:ApiHandlingComponent
     }
 ];
