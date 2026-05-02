@@ -17,5 +17,12 @@ export class ProductService {
     { id: 102, name: 'Mobile', price: 47000 },
     { id: 103, name: 'Tablet', price: 35000 },
   ];
+
+  // filterByPrice(45000)
+  filterByGreaterThanPrice(price:number)
+  {
+      return this.products.filter(p=>p.price>price)
+  }
   constructor() {}
+
 }

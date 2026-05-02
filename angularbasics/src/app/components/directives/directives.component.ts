@@ -39,6 +39,11 @@ export class DirectivesComponent {
       this.styles.push(className)
      }
 
+
+     filterByGreaterThanPrice(price:number)
+     {
+        this.products= this.productService.filterByGreaterThanPrice(price)
+     }
      cssStyles()
      {
        return {

@@ -1,0 +1,8 @@
+<div class="container bg-warning m-3 p-3">
+    <h1>Parent component Message :{{data}}</h1>
+    <button class="btn btn-primary m-3" (click)="changeData('Good Morning')">Message1</button>
+      <button class="btn btn-primary m-3"  (click)="changeData('Good Afternoon')">Message 2</button>
+        <button class="btn btn-primary m-3"  (click)="changeData('Good Evening')">Message 3</button>
+    <app-b [message]="data" *ngIf="isVisible"></app-b>
+    <button class="btn btn-primary m-3" (click)="changeIsVisible()"> SHOW/Hide B component</button>
+</div>
