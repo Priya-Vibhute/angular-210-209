@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { ApiServiceService } from '../../services/api-service.service';
-import { Product } from '../../services/product.service';
+import { ApiServiceService, Product } from '../../services/api-service.service';
+import { CommonModule } from '@angular/common';
+import { error } from 'console';
 
 @Component({
   selector: 'app-api-handling',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './api-handling.component.html',
   styleUrl: './api-handling.component.css'
 })
@@ -20,17 +21,30 @@ export class ApiHandlingComponent {
 
   addProduct()
   {
-
+             
   }
 
-  updateProducts()
+  updateProducts(id:number,product:Product)
   {
-
+           this.apiService.updateProduct(id,product)
+           .subscribe({
+              next:(value)=>{ 
+                alert("Product updated")
+              },
+              error:(error)=>{
+                alert(error.message)
+              }
+           })
   }
 
 
-  deleteProduct()
+  deleteProduct(id:number)
   {
+     this.apiService.deleteProduct(id)
+     .subscribe({
+      next:(value)=>alert("Product deleted"),
+      error:(error)=>alert(error.message)
+     })
 
   }
 
@@ -38,7 +52,7 @@ export class ApiHandlingComponent {
   {
      this.apiService.getProducts()
      .subscribe({
-      next:(value)=>console.log(value)
+      next:(value)=>this.products=value
      })
   }
 

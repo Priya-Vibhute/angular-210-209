@@ -11,6 +11,10 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 import { ApiHandlingComponent } from './components/api-handling/api-handling.component';
+import { BooksComponent } from './components/books/books.component';
+import { BooksDetailComponent } from './components/books-detail/books-detail.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import { DeleteBookComponent } from './components/delete-book/delete-book.component';
 
 export const routes: Routes = [
     {
@@ -60,5 +64,23 @@ export const routes: Routes = [
     {
         path:'api-handling',
         component:ApiHandlingComponent
+    },
+    {
+        path:'books',
+        component:BooksComponent,
+        children:[
+            {
+                path:'detail/:bookId',
+                component:BooksDetailComponent
+            },
+            {
+                path:'add-book',
+                component:AddBookComponent
+            },
+            {
+                path:'delete-book',
+                component:DeleteBookComponent
+            }
+        ]
     }
 ];

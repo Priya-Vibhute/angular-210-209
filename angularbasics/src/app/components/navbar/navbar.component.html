@@ -15,22 +15,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/data-binding">Data Binding</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/pipes">Pipes</a>
+          <a class="nav-link" routerLink="/data-binding" routerLinkActive="active">Data Binding</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/input-output">Input and Output</a>
+          <a class="nav-link" routerLink="/pipes" routerLinkActive="active">Pipes</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/directives">Directives</a>
+          <a class="nav-link" routerLink="/input-output" routerLinkActive="active">Input and Output</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/directives" routerLinkActive="active">Directives</a>
         </li>
         <li class="nav-item dropdown">
           <a
