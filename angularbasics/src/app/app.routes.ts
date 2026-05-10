@@ -15,6 +15,8 @@ import { BooksComponent } from './components/books/books.component';
 import { BooksDetailComponent } from './components/books-detail/books-detail.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { DeleteBookComponent } from './components/delete-book/delete-book.component';
+import { FormHandlin1Component } from './components/form-handlin1/form-handlin1.component';
+import { FormHandlin2Component } from './components/form-handlin2/form-handlin2.component';
 
 export const routes: Routes = [
     {
@@ -82,5 +84,13 @@ export const routes: Routes = [
                 component:DeleteBookComponent
             }
         ]
+    },
+    {
+        path:'form-handling-1',
+        component:FormHandlin1Component
+    },
+    {
+        path:'form-handling-2',
+        component:FormHandlin2Component
     }
 ];
