@@ -1,1 +1,4 @@
-<p>profile works!</p>
+<div class="container bg-warning m-3 p-3">
+    <h1>{{isSaved ? "Profile is saved":"Profile is not saved"}}</h1>
+    <button class="btn btn-primary" (click)="changeIsSaved()">Save</button>
+</div>

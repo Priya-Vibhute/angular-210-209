@@ -19,6 +19,8 @@ import { FormHandlin1Component } from './components/form-handlin1/form-handlin1.
 import { FormHandlin2Component } from './components/form-handlin2/form-handlin2.component';
 import { authGuardGuard } from './guards/auth-guard.guard';
 import { authChildGuard } from './guards/auth-child.guard';
+import { ProfileComponent } from './components/profile/profile.component';
+import { authDeactivateGuard } from './guards/auth-deactivate.guard';
 
 export const routes: Routes = [
     {
@@ -99,5 +101,10 @@ export const routes: Routes = [
         path:'form-handling-2',
         component:FormHandlin2Component,
         canActivate:[authGuardGuard]
+    },
+    {
+        path:'profile',
+        component:ProfileComponent,
+        canDeactivate:[authDeactivateGuard]
     }
 ];

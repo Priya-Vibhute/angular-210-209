@@ -1,6 +1,6 @@
 import { CanDeactivateFn } from '@angular/router';
 
-interface CanExit
+export interface CanExit
 {
     canExit:()=>boolean;
 }
