@@ -1,1 +1,57 @@
-<p>form-handlin2 works!</p>
+
+<form class="container m-5 px-5 " [formGroup]="form" (ngSubmit)="onSubmit()">
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" formControlName="email">
+
+  <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
+
+      <small class="text-danger" *ngIf="form.get('email')?.hasError('required')"> email is required
+      </small>
+
+
+       <small class="text-danger" *ngIf="form.get('email')?.hasError('email')"> 
+           Invalid email address
+      </small>
+     
+
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Name</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" formControlName="name">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">age</label>
+  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" formControlName="age">
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">password</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" 
+  placeholder="" formControlName="password">
+
+  
+  <div *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)">
+
+      <small class="text-danger" *ngIf="form.get('password')?.hasError('required')"> password is required
+      </small>
+
+
+       <small class="text-danger" *ngIf="form.get('password')?.hasError('pattern')"> 
+           Invalid password
+      </small>
+     
+
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary">submit</button>
+
+</form>
+
+<button class="btn btn-primary" (click)="setValues()">Set Values</button>

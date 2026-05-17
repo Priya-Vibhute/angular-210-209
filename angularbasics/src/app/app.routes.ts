@@ -17,6 +17,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { DeleteBookComponent } from './components/delete-book/delete-book.component';
 import { FormHandlin1Component } from './components/form-handlin1/form-handlin1.component';
 import { FormHandlin2Component } from './components/form-handlin2/form-handlin2.component';
+import { authGuardGuard } from './guards/auth-guard.guard';
+import { authChildGuard } from './guards/auth-child.guard';
 
 export const routes: Routes = [
     {
@@ -70,14 +72,17 @@ export const routes: Routes = [
     {
         path:'books',
         component:BooksComponent,
+        canActivateChild:[authChildGuard],
         children:[
             {
                 path:'detail/:bookId',
-                component:BooksDetailComponent
+                component:BooksDetailComponent,
+                
             },
             {
                 path:'add-book',
-                component:AddBookComponent
+                component:AddBookComponent,
+    
             },
             {
                 path:'delete-book',
@@ -87,10 +92,12 @@ export const routes: Routes = [
     },
     {
         path:'form-handling-1',
-        component:FormHandlin1Component
+        component:FormHandlin1Component,
+        canActivate:[authGuardGuard]
     },
     {
         path:'form-handling-2',
-        component:FormHandlin2Component
+        component:FormHandlin2Component,
+        canActivate:[authGuardGuard]
     }
 ];
