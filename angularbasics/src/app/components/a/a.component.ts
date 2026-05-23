@@ -10,6 +10,13 @@ import { CommonModule } from '@angular/common';
 })
 export class AComponent {
      data="Message from A component"
+     content="Java"
+
+     //changeContent("Hello")
+     changeContent(msg:string)
+     {
+         this.content=msg
+     }
 
      isVisible=true;
 

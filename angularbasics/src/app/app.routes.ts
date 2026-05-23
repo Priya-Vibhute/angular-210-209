@@ -21,6 +21,8 @@ import { authGuardGuard } from './guards/auth-guard.guard';
 import { authChildGuard } from './guards/auth-child.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { authDeactivateGuard } from './guards/auth-deactivate.guard';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { authMatchGuard } from './guards/auth-match.guard';
 
 export const routes: Routes = [
     {
@@ -69,7 +71,8 @@ export const routes: Routes = [
     },
     {
         path:'api-handling',
-        component:ApiHandlingComponent
+        component:ApiHandlingComponent,
+        canMatch:[authMatchGuard]
     },
     {
         path:'books',
@@ -106,5 +109,9 @@ export const routes: Routes = [
         path:'profile',
         component:ProfileComponent,
         canDeactivate:[authDeactivateGuard]
+    },
+    {
+        path:'**',// wild card route
+        component:NotfoundComponent
     }
 ];

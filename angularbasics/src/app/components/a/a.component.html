@@ -1,8 +1,39 @@
 <div class="container bg-warning m-3 p-3">
-    <h1>Parent component Message :{{data}}</h1>
-    <button class="btn btn-primary m-3" (click)="changeData('Good Morning')">Message1</button>
-      <button class="btn btn-primary m-3"  (click)="changeData('Good Afternoon')">Message 2</button>
-        <button class="btn btn-primary m-3"  (click)="changeData('Good Evening')">Message 3</button>
-    <app-b [message]="data" *ngIf="isVisible"></app-b>
-    <button class="btn btn-primary m-3" (click)="changeIsVisible()"> SHOW/Hide B component</button>
+  <h1>Parent component Message :{{ data }}</h1>
+
+  <hr>
+
+  <button class="btn btn-primary" (click)="changeContent('Javascript')">Content1</button>
+  <button class="btn btn-primary" (click)="changeContent('react')">Content</button>
+
+  <hr>
+  <button class="btn btn-primary m-3" (click)="changeData('Good Morning')">
+    Message1
+  </button>
+  <button class="btn btn-primary m-3" (click)="changeData('Good Afternoon')">
+    Message 2
+  </button>
+  <button class="btn btn-primary m-3" (click)="changeData('Good Evening')">
+    Message 3
+  </button>
+  <app-b [message]="data" *ngIf="isVisible">
+    <div>
+      <ul>
+        <li>
+          <u>{{ content }}</u>
+        </li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
+    </div>
+  </app-b>
+
+  <app-b [message]="data">
+    <h5>
+      Lorem, ipsum <u>{{ content }}</u>
+    </h5>
+  </app-b>
+  <button class="btn btn-primary m-3" (click)="changeIsVisible()">
+    SHOW/Hide B component
+  </button>
 </div>

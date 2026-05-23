@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChange} from '@angular/core';
+import { Component, ElementRef, Input, SimpleChange, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-b',
@@ -9,16 +9,19 @@ import { Component, Input, SimpleChange} from '@angular/core';
 export class BComponent {
 
     @Input() message="Default value"
+    @ViewChild('para') paragraph !:ElementRef;
+    @ViewChild('input') inputBox!:ElementRef;
+    @ViewChild('box')  box!:ElementRef;
 
     constructor()
     {
       console.log("Constructor",this.message);
-      
+  
     }
 
     ngOnInit()
     {
-      console.log("ngOnInit",this.message);
+      console.log("ngOnInit",this.message,this.paragraph);
       
     }
 
@@ -34,10 +37,32 @@ export class BComponent {
       
     }
 
+    ngAfterContentInit()
+    {
+      console.log("ngAfterContentInit");
+    }
+
+    ngAfterContentChecked()
+    {
+      console.log("ngAfterContentChecked");
+    }
+
+    ngAfterViewInit()
+    {
+      this.inputBox.nativeElement.focus()
+      this.paragraph.nativeElement.style.backgroundColor="plum";
+      console.log("ngAfterViewInit",this.paragraph);
+    }
+
     ngOnDestroy()
     {
       console.log("component destroyed");
       
+    }
+
+    changeShape(borderRadius:string)
+    {
+         this.box.nativeElement.style.borderRadius=borderRadius;
     }
 
 

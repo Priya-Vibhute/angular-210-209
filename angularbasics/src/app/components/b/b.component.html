@@ -1,4 +1,22 @@
 <div class="container bg-danger text-white">
     <h3>Child component</h3>
     <p>Message from parent {{message}}</p>
+    <ng-content></ng-content>
+
+    <hr>
+
+    <p #para >Lorem ipsum dolor sit amet.</p>
+    <input type="text" #input>
+<hr>
+    <div style="height: 200px; width: 200px;background-color: aqua;" #box>
+
+        <button class="btn btn-primary m-3" (click)="changeShape('50%')"> Border radius 1</button>
+
+         <button class="btn btn-primary m-3" (click)="changeShape('50% 0%')"> Border radius 1</button>
+
+          <button class="btn btn-primary m-3" (click)="changeShape('50% 0%  0% 0%')"> Border radius 1</button>
+          
+
+
+    </div>
 </div>
